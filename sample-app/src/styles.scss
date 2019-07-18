@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+
+@include mat-core();
+
+$primary: mat-palette($mat-indigo);
+$accent:  mat-palette($mat-pink, A200, A400);
+$warn:    mat-palette($mat-red, 500);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+body {
+    font-family: $mat-font-family;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+.form-input{
+    margin-left: 3%;
+}
+.note-input{
+    margin-left: 3%;
+    margin-top:-1%;
+    font-size: 15px !important;
+    color: gray;
+}
+.button-input{
+    margin-left: 50%;
+}
+.mat-raised-button{
+    background-color: #00b989;
+    color:white !important;
+}
+.mat-radio-button ~ .mat-radio-button {
+    padding-right: 16px;
+  }
+.mat-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+.container-fluid{
+    padding-top: 30px;
+}
+.mat-toolbar{
+    background-color: #0078D2 !important;
+    height: 45px !important;
+    border: 1px solid transparent;
+    font-weight: normal;
+    font-size: 16px;
+    color: white;
+}
+body, html {
+    width: 100%;
+    font-family: "Helvetica","Arial",sans-serif !important;
+}
+.mat-card{
+    padding:0px !important;
+}
+.mat-card-title{
+    height: 45px;
+}

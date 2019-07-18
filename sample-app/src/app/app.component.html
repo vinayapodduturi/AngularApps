@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <mat-card>
+            <mat-card-actions  style="padding-bottom: 25px;">
+                   
+                <div class="row form-input">
+                        <mat-form-field class="fname-input">
+                            <input id="fname" matInput placeholder="First Name" [(ng-model)]="fname">
+                        </mat-form-field>
+                    </div>
+                   
+                    <div class="row form-input">
+                        <mat-form-field class="lname-input">
+                            <input id="lname" matInput placeholder="Last Name"  [(ng-model)]="lname">
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="row form-input">
+                        <mat-form-field class="email-input">
+                            <input id="email" matInput placeholder="Email ID" [(ng-model)]="email">
+                        </mat-form-field>
+                    </div>
+                    <div class="row form-input" [style.display]="'flex'">
+                        <mat-radio-group [(ng-model)]="gender" (change) = "updateGender($event)" id="gender">
+                                <mat-radio-button color="primary" [checked]="true" [value]="1">Male</mat-radio-button>
+                                <mat-radio-button color="primary" [value]="2">Female</mat-radio-button>
+                            </mat-radio-group>
+                </div>
+                    <div class="row button-input">
+                            <button mat-raised-button (click) = "submit()">Submit</button>
+                    </div>
+            </mat-card-actions>
+           
+            <mat-card-actions style="padding: 20px;">
+                <mat-table #table [dataSource]="dataSource">
+                    <ng-container matColumnDef="Name">
+                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="Phone">
+                            <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Phone}}  </mat-cell>
+                        </ng-container>
+                    <ng-container matColumnDef="Address">
+                            <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Address}} </mat-cell>
+                        </ng-container>
+                    <ng-container matColumnDef="EmailID">
+                            <mat-header-cell *matHeaderCellDef> Email ID </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Email}} </mat-cell>
+                        </ng-container>
+                    <ng-container matColumnDef="EmployeeID">
+                            <mat-header-cell *matHeaderCellDef> Employee ID </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.EmployeeID}} </mat-cell>
+                        </ng-container>
+                    <ng-container matColumnDef="Department">
+                            <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Department}} </mat-cell>
+                        </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    
+                </mat-table>
+                <mat-paginator #paginator
+                [length]="dataLength?.length"
+                [pageIndex]="0"
+                [pageSize]="25"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+                </mat-paginator>
+              
+            </mat-card-actions>
+    </mat-card>
+</div>
